@@ -1,0 +1,107 @@
+#api call for creating user account
+
+
+###
+POST http://127.0.0.1:8000/v1/spending/register/
+Content-Type: application/json
+
+{
+    "username":"react",
+    "email":"react@gmail.com",
+    "password":"Password@123"
+}
+
+#api call for getting token
+###
+POST  http://127.0.0.1:8000/v1/spending/token/
+Content-Type: application/json
+
+{
+    "username":"django",
+    "password":"Password@123"
+}
+
+
+
+#api call for get currentbusr detail
+###
+GET http://127.0.0.1:8000/v1/spending/me/
+Accept: application/json
+#Authorization: Basic react:Password@123
+Authorization: Token 4617f56cb880ee4663c096f803d5b17ec71d4a7f
+
+#expense endpoint
+#api call for listing all expenses
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/
+Accept: application/json
+#Authorization: Basic python:Password@123
+Authorization: Token 4617f56cb880ee4663c096f803d5b17ec71d4a7f
+
+
+#api call for adding expense
+###
+POST http://127.0.0.1:8000/v1/spending/expenses/
+Content-Type: application/json
+#Authorization: Basic django:Password@123
+Authorization: Token 4617f56cb880ee4663c096f803d5b17ec71d4a7f
+
+
+{
+    "title":"gaming",
+    "amount":200,
+    "category":"ENTERTAINMENT",
+    "payment_method":"upi",
+    "priority":"need"
+    
+}
+
+#Api call for fetching expance detail
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/6/
+Accept: application/json
+#Authorization: Basic django:Password@123
+Authorization: Token 4617f56cb880ee4663c096f803d5b17ec71d4a7f
+
+
+#api call for updating expense
+###
+PUT  http://127.0.0.1:8000/v1/spending/expenses/4/
+Content-Type: application/json
+#Authorization: Basic django:Password@123
+Authorization: Token 4617f56cb880ee4663c096f803d5b17ec71d4a7f
+
+
+{
+   "id": 4,
+  "title": "turf split",
+  "amount": "140.00",
+  "category": "BILLS",
+  "priority": "need",
+  "payment_method": "upi",
+  "created_at": "2026-10-15T06:50:24.270497Z",
+  "updated_at": "2026-10-15T06:50:24.270951Z",
+  "owner": 1
+}
+
+#api call for delete expense
+###
+DELETE http://127.0.0.1:8000/v1/spending/expenses/11/
+Accept: application/json
+#Authorization: Basic django:Password@123
+Authorization: Token 4617f56cb880ee4663c096f803d5b17ec71d4a7f
+
+#api calk for expense summary
+###
+GET http://127.0.0.1:8000/v1/spending/expenses/summary/
+Accept: application/json
+Authorization: Token 4617f56cb880ee4663c096f803d5b17ec71d4a7f
+
+#api call for budget plan
+###
+GET  http://127.0.0.1:8000/v1/spending/budgetplan/
+Accept: application/json
+Authorization: Token 4617f56cb880ee4663c096f803d5b17ec71d4a7f
+
+
+
